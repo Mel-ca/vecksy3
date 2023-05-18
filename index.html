@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       
+        background-color: white;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .logo img {
+        height: 40px; /* Adjust the height as needed */
+      }
+      
+      .nav-links li {
+        display: inline-block;
+        margin-left: 15px;
+      }
+      
+      .nav-links li:first-child {
+        margin-left: 0;
+      }
+      
+      .nav-links a {
+        color: #333;
+        text-decoration: none;
+      }
+      
+      .nav-links a:hover {
+        color: #000;
+      }
+      .hero {
+        position: relative;
+        height: 600px; /* Adjust the height as needed */
+        background-image: url('vecksy-hero.jpg'); 
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        margin: 0;
+        padding: 0;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity by modifying the last value (0.5 in this example) */
+      }
+      
+      
+      .hero-content {
+        position: relative;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        z-index: 1; /* Add a higher z-index to keep the text above the background */
+  
+      }
+      
+      .hero-content h2 {
+        font-size: 80px; /* Adjust the font size as needed */
+        margin-bottom: 20px;
+      }
+      
+      .hero-content h1 {
+        font-size: 40px; /* Adjust the font size as needed */
+        margin-bottom: 20px;
+        margin-top: 0;
+      }
+      
+      .hero-content p {
+        font-size: 30px; /* Adjust the font size as needed */
+        margin-bottom: 30px;
+      }
+      
+      .buttons .btn {
+        display: inline-block;
+        padding: 24px 48px;
+        margin: 0 10px;
+        color: #fff;
+        background-color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      
+      .buttons .btn:hover {
+        background-color: #000;
+      }
+      
+      .top-car-deals {
+        margin-top: 50px; /* Adjust the margin as needed */
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 20px; /* Adjust the margin as needed */
+      }
+      
+      
+      .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px; /* Adjust the gap between cards as needed */
+      }
+      .row.row-1 {
+        margin-bottom: 20px; /* Adjust the margin as needed */
+      }
+      
+      .row.row-2 {
+        margin-bottom: 0; /* Adjust the margin as needed */
+      }
+      
+      
+      .card {
+        background-color: #f5f5f5;
+        padding: 20px;
+        text-align: center;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 300px; /* Adjust the width of the card as needed */
+      }
+      
+      .card img {
+        width: 100%;
+        max-height: 200px; /* Adjust the max-height of the image as needed */
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      
+      .card h3 {
+        font-size: 20px; /* Adjust the font size as needed */
+        margin-bottom: 10px;
+      }
+      
+      .card p {
+        margin-bottom: 10px;
+      }
+      
+      .card .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      
+      .card .btn:hover {
+        background-color: #000;
+      }
+      .view-more-deals {
+        text-align: center;
+        margin-top: 20px; /* Adjust the margin as needed */
+      }
+      
+      .view-more-deals .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      
+      #reviews-section {
+        margin-top: 50px; /* Adjust the margin as needed */
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 20px; /* Adjust the margin as needed */
+      }
+      
+      .row {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px; /* Adjust the gap between cards as needed */
+      }
+      
+      .review-card {
+        background-color: #f5f5f5;
+        padding: 20px;
+        text-align: center;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 300px; /* Adjust the width of the card as needed */
+      }
+      
+      .review-card img {
+        width: 100%;
+        max-height: 200px; /* Adjust the max-height of the image as needed */
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      
+      .review-content {
+        margin-bottom: 10px;
+      }
+      
+      .review-text {
+        margin-bottom: 10px;
+      }
+      
+      .review-author {
+        font-style: italic;
+        color: #777;
+      }
+      .stars {
+        color: orange;
+        font-size: 24px; /* Adjust the font size as needed */
+      }
+      
+      
+      #contact-section {
+        background-color: #f5f5f5;
+        padding: 50px;
+        text-align: center;
+      }
+      
+      .section-title {
+        margin-bottom: 20px; /* Adjust the margin as needed */
+      }
+      
+      .contact-details {
+        display: flex;
+        justify-content: center;
+        gap: 30px; /* Adjust the gap between contact items as needed */
+      }
+      
+      .contact-item {
+        flex-basis: 33%;
+      }
+      
+      .contact-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .contact-info {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      
+      .contact-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .contact-button:hover {
+        background-color: #0056b3;
+      }
+          
+</style>
+<body>
+    <nav>
+        <div class="logo">
+          <img src="vecksy-logo.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">CAR DEALS</a></li>
+          <li><a href="#">REVIEWS</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-content">
+          <!-- <h1>PRE-OWNED CARS</h1> -->
+          <h2>VECKSY MOTOR DEALERS</h2>
+          <p>We sell relatively new locally used cars</p>
+          <div class="buttons">
+            <a href="#" class="btn">Call Us</a>
+            <a href="#" class="btn">View Deals</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="top-car-deals">
+        <h2 class="section-title">Top Car Deals This Week</h2>
+        <div class="row row-1">
+          <div class="card">
+            <img src="car1.jpg" alt="Car 1">
+            <h3>Toyota Porte</h3>
+            <p>KCG,YOM 2008 ,Automatic,Rating 1500cc, Asking 530k.Pay 75% deposit balance pay in installment with no added charges, interest or penalties<br> <br>Visit our showroom at Ruiru Kihunguro Along Thika Road Next To Wonders Tabernacle Church. For more information reach us on 0100701606</p>
+            <p>Price: ksh 530,000</p>
+            <a href="#" class="btn">Call Us</a>
+          </div>
+          <div class="card">
+            <img src="car2.jpg" alt="Car 2">
+            <h3>Nissan X-Trail</h3>
+            <p>KBT,YOM 2005,Automatic, Rating 2000cc, Asking 760k.Pay 75% deposit balance pay in installment with no added charges, interest or penalties<br><br> Visit our showroom at Ruiru Kihunguro Along Thika Road Next To Wonders Tabernacle Church. For more information reach us on 0100701606</p>
+            <p>Price: ksh 760,000</p>
+            <a href="#" class="btn">Call Us</a>
+          </div>
+          <div class="card">
+            <img src="car3.jpg" alt="Car 3">
+            <h3>Toyota Caldina</h3>
+            <p>KAY,YOM 2000,Automatic, Rating 1800cc, Selling at 450k.Pay 75% deposit balance pay in installment with no added charges, interest or penalties<br><br> Visit our showroom at Ruiru Kihunguro Along Thika Road Next To Wonders Tabernacle Church. For more information reach us on 0100701606</p>
+            <p>Price: ksh 450,000</p>
+            <a href="#" class="btn">Call Us</a>
+          </div>
+        </div>
+        <div class="row row-2">
+          <div class="card">
+            <img src="car4.jpg" alt="Car 4">
+            <h3>Toyota Passo</h3>
+            <p> KCV,YOM 2012, Automatic,Rating 1000cc Asking 620k.Pay 75% deposit balance pay in installment with no added charges, interest or penalties<br><br> Visit our showroom at Ruiru Kihunguro Along Thika Road Next To Wonders Tabernacle Church. For more information reach us on 0100701606</p>
+            <p>Price: ksh 620,000</p>
+            <a href="#" class="btn">Call Us</a>
+          </div>
+          <div class="card">
+            <img src="car5.jpg" alt="Car 5">
+            <h3>Subaru Forester</h3>
+            <p>KCY,YOM 2013, Automatic, Rating 2000cc,Selling at 1.65m.Pay 75% deposit balance pay in installment with no added charges, interest or penalties<br><br> Visit our showroom at Ruiru Kihunguro Along Thika Road Next To Wonders Tabernacle Church. For more information reach us on 0100701606</p>
+            <p>Price: ksh 1,650,000</p>
+            <a href="#" class="btn">Call Us</a>
+          </div>
+          <div class="card">
+            <img src="car6.jpg" alt="Car 6">
+            <h3>Nissan Tiida</h3>
+            <p>KCB, YOM 2007, Automatic, Rating 1500cc, Selling at 490k.Pay 75% deposit balance pay in installment with no added charges, interest or penalties <br><br> Visit our showroom at Ruiru Kihunguro Along Thika Road Next To Wonders Tabernacle Church. For more information reach us on 0100701606</p>
+            <p>Price: ksh 490,000</p>
+            <a href="#" class="btn">Call Us</a>
+          </div>
+        </div>
+        <div class="view-more-deals">
+            <a href="#" class="btn">View More Deals</a>
+        </div>
+      </section>
+      
+
+      <section id="reviews-section">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="row">
+          <div class="review-card">
+            <!-- <img src="person1.jpg" alt="Person 1"> -->
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-content">
+              <p class="review-text">A great place. Have nice cars</p>
+              <p class="review-author">- George Karanja</p>
+            </div>
+          </div>
+          <div class="review-card">
+            <!-- <img src="person2.jpg" alt="Person 2"> -->
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-content">
+              <p class="review-text">The best car dealers in town. Their customer service is tops and their prices are so competitive. Visit them at Ruiru kihunguro near Wonders church</p>
+              <p class="review-author">- Irene Magiri</p>
+            </div>
+          </div>
+          <div class="review-card">
+            <!-- <img src="person3.jpg" alt="Person 3"> -->
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="review-content">
+              <p class="review-text">Best vehicles. I like them. Very genuine</p>
+              <p class="review-author">- June J Thomas</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <h3 class="contact-title">Location</h3>
+            <p class="contact-info">Adjacent to Wonders Tabernacle Church, Thika Road Ruiru</p>
+          </div>
+          <div class="contact-item">
+            <h3 class="contact-title">Phone</h3>
+            <p class="contact-info">0100701606</p>
+            <a class="contact-button" href="tel:0100701606">Call Us</a>
+          </div>
+          <div class="contact-item">
+            <h3 class="contact-title">Hours of Operation</h3>
+            <p class="contact-info">Mon - Sat: 8am - 6pm</p>
+            <p class="contact-info">Sun: 11am - 6pm</p>
+          </div>
+        </div>
+      </section>
+      
+      
+      
+      
+</body>
+</html>
